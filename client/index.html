@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Book Inventory App</title>
+
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+	</head>
+	<body ng-app="book-inventory-app">
+		<div class="container" ui-view=""></div>
+
+		<script src="lib/angular/angular.js"></script>
+		<script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+		<script src="lib/lodash/lodash.js"></script>
+		<script src="lib/moment/moment.js"></script>
+
+		<script src="app/app.js"></script>
+		<script src="app/modules.js"></script>
+
+		<script src="app/main.js"></script>
+
+		<!-- Services -->
+		<script src="app/books/services/booksService.js"></script>
+
+		<!-- Controllers -->
+		<script src="app/books/controllers/booksController.js"></script>
+		<script src="app/editBook/controllers/editBookController.js"></script>
+		<script src="app/addBook/controllers/addBookController.js"></script>
+
+		<!-- Filters -->
+		<script src="app/filters/formatName.js"></script>
+		<script src="app/filters/formatShortDate.js"></script>
+		<script src="app/filters/formatLongDate.js"></script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<h1>Edit Book</h1>
+<div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" ng-model="editBookVM.book.title">
+</div>
+<div class="form-group">
+    <label for="author">Author</label>
+    <input type="text" class="form-control" id="author" ng-model="editBookVM.book.author">
+</div>
+<div class="form-group">
+    <label for="publisher">Publisher</label>
+    <input type="text" class="form-control" id="publisher" ng-model="editBookVM.book.publisher">
+</div>
+<div class="form-group">
+    <label for="publicationDate">Publishing Date</label>
+    <input type="text" class="form-control" id="publicationDate" ng-model="editBookVM.book.publicationDate">
+</div>
+<div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" id="description" rows="3" ng-model="editBookVM.book.description"></textarea>
+</div>
+<div class="text-right">
+    <a href="" class="btn btn-default" ng-click="editBookVM.saveBook()">Save</a>
+    <a href="" class="btn btn-danger" ng-click="editBookVM.cancelSave()">Cancel</a>
+</div>

@@ -1,0 +1,17 @@
+{
+  "name": "unit-test-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.4.20"
+  }
+}

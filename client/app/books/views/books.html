@@ -1,0 +1,57 @@
+<div>
+    <div class="row">
+        <div class="col-xs-9">
+            <h1>Book Inventory</h1><br />
+        </div>
+        <div class="col-xs-3 text-right" style="padding-top: 35px;">
+            <a href="" ng-click="booksVM.addBook()"><span class="glyphicon glyphicon-plus"></span> Add New Book</a>
+        </div>
+    </div>
+
+    <div class="panel panel-default" ng-if="booksVM.selectedBook">
+      <div class="panel-heading">
+        <div class="text-right">
+            <a href="" ng-click="booksVM.closeDetails()">Close <span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+        <h3 class="panel-title">
+            {{booksVM.selectedBook.title}}
+        </h3>
+        <i>By {{booksVM.selectedBook.author | formatName}}</i>
+      </div>
+      <div class="panel-body">
+        <p>{{booksVM.selectedBook.description}}</p>
+
+        <strong>Length:</strong> {{booksVM.selectedBook.length}} pages<br />
+        <strong>Publisher:</strong> {{booksVM.selectedBook.publisher}}<br />
+        <strong>Published Date:</strong> {{booksVM.selectedBook.publicationDate | formatLongDate}}<br />
+      </div>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td>Title</td>
+          <td>Author</td>
+          <td>Publication Date</td>
+          <td class="text-right">Actions</td>
+        </tr>
+      </thead>
+      <tbody>
+          <tr ng-repeat="book in booksVM.booksList">
+            <td>{{book.title}}</td>
+            <td>{{book.author | formatName}}</td>
+            <td>{{book.publicationDate | formatShortDate}}</td>
+            <td class="text-right">
+                <a href="" ng-click="booksVM.selectBook(book)">Details</a>
+                <a class="btn btn-xs btn-default" ng-click="booksVM.editBook(book.id)"><span class="glyphicon glyphicon-pencil"></span></a> 
+                <a class="btn btn-xs btn-danger" ng-click="booksVM.deleteBook(book.id)"><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
+          </tr>
+          <tr ng-if="!booksVM.booksList.length">
+            <td colspan="4">
+                No Books in Inventory.  <a href="" ng-click="booksVM.addBook()">Add one now.</a>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+</div>
