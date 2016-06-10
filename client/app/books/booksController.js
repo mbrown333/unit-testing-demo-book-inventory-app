@@ -2,10 +2,10 @@
     BooksController.$inject = ['BooksService', '$state'];
 
     function BooksController(BooksService, $state) {
-        var self = this;
+        var vm = this;
 
         function onListReturn(data) {
-            self.booksList = data;
+            vm.booksList = data;
         };
 
         function loadBooks() {
@@ -13,19 +13,19 @@
                 .then(onListReturn);
         };
 
-        self.selectBook = function(book) {
-            self.selectedBook = book;
+        vm.selectBook = function(book) {
+            vm.selectedBook = book;
         };
 
-        self.editBook = function(id) {
+        vm.editBook = function(id) {
             $state.go('editBook', { id: id });
         };
 
-        self.addBook = function() {
+        vm.addBook = function() {
             $state.go('addBook');
         };
 
-        self.deleteBook = function(id) {
+        vm.deleteBook = function(id) {
             BooksService.deleteBook(id)
                 .then(function(success) {
                     if (success)
@@ -33,8 +33,8 @@
                 });
         };
 
-        self.closeDetails = function() {
-            self.selectedBook = null;
+        vm.closeDetails = function() {
+            vm.selectedBook = null;
         };
 
         // Init controller

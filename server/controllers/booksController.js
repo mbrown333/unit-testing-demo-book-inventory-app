@@ -25,7 +25,7 @@ BookController.addBook = function(req, res) {
     var book = new Book({
         title: req.body.title,
         author: req.body.author,
-        length: req.body.length,
+        pageLength: req.body.pageLength,
         publisher: req.body.publisher,
         publicationDate: req.body.publicationDate,
         description: req.body.description

@@ -7,13 +7,15 @@ var bookSchema = new Schema({
   title: String,
   description: String,
   author: String,
-  length: Number,
+  pageLength: Number,
   publisher: String,
   publicationDate: String
+},
+{
+  timestamps: true
 });
 
 bookSchema.virtual('id').get(function(){
-    console.log('this', this);
     return this._id.toHexString();
 });
 

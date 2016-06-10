@@ -2,9 +2,9 @@
     EditBookController.$inject = ['$state', '$stateParams', 'BooksService'];
 
     function EditBookController($state, $stateParams, BooksService) {
-        var self = this;
+        var vm = this;
 
-        self.book = {
+        vm.book = {
             title: '',
             author: '',
             publisher: '',
@@ -18,28 +18,29 @@
         }
 
         //public methods
-        self.saveBook = function() {
-            BooksService.saveBook(self.book, self.bookId)
+        vm.saveBook = function() {
+            BooksService.saveBook(vm.book, vm.bookId)
                 .then(function(success) {
                     if (success) returnToBookList();
                 });
         };
 
-        self.cancelSave = function() {
+        vm.cancelSave = function() {
             returnToBookList();
         };
 
         // Init Controller
-        self.bookId = $stateParams.id;
-        if (!self.bookId) returnToBookList();
+        vm.bookId = $stateParams.id;
+        if (!vm.bookId) returnToBookList();
 
         BooksService.getBook($stateParams.id)
             .then(function(data) {
-                self.book.title = data.title;
-                self.book.author = data.author;
-                self.book.publisher = data.publisher;
-                self.book.publicationDate = data.publicationDate;
-                self.book.description = data.description;
+                vm.book.title = data.title;
+                vm.book.author = data.author;
+                vm.book.publisher = data.publisher;
+                vm.book.publicationDate = data.publicationDate;
+                vm.book.pageLength = data.pageLength;
+                vm.book.description = data.description;
             });
     }
 

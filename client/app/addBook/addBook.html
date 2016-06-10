@@ -1,0 +1,31 @@
+<h1>Add New Book</h1>
+<p ng-if="addBookVM.showFieldsRequiredError"><strong>All Fields Required</strong></p>
+<div class="form-group" ng-class="{ 'has-error': addBookVM.hasSubmittedForm && !addBookVM.book.title }">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" ng-model="addBookVM.book.title">
+</div>
+<div class="form-group" ng-class="{ 'has-error': addBookVM.hasSubmittedForm && !addBookVM.book.author }">
+    <label for="author">Author</label>
+    <input type="text" class="form-control" id="author" ng-model="addBookVM.book.author">
+</div>
+<div class="form-group" ng-class="{ 'has-error': addBookVM.hasSubmittedForm && !addBookVM.book.publisher }">
+    <label for="publisher">Publisher</label>
+    <input type="text" class="form-control" id="publisher" ng-model="addBookVM.book.publisher">
+</div>
+<div class="form-group" ng-class="{ 'has-error': (addBookVM.hasSubmittedForm && !addBookVM.book.publicationDate) || addBookVM.showPublicationDateError }">
+    <label for="publicationDate">Publishing Date</label><br />
+    <span ng-if="addBookVM.showPublicationDateError" class="text-right">Please enter a valid date (MM/DD/YYYY)</span>
+    <input type="text" class="form-control" id="publicationDate" ng-model="addBookVM.book.publicationDate">
+</div>
+<div class="form-group" ng-class="{ 'has-error': addBookVM.hasSubmittedForm && !addBookVM.book.pageLength }">
+    <label for="publicationDate">Page Length</label>
+    <input type="text" class="form-control" id="publicationDate" ng-model="addBookVM.book.pageLength">
+</div>
+<div class="form-group" ng-class="{ 'has-error': addBookVM.hasSubmittedForm && !addBookVM.book.description }">
+    <label for="description">Description</label>
+    <textarea class="form-control" id="description" rows="3" ng-model="addBookVM.book.description"></textarea>
+</div>
+<div class="text-right">
+    <a href="" class="btn btn-default" ng-click="addBookVM.saveBook()">Save</a>
+    <a href="" class="btn btn-danger" ng-click="addBookVM.cancelSave()">Cancel</a>
+</div>

@@ -7,17 +7,17 @@
             $stateProvider
                 .state('books', {
                     url: '/',
-                    templateUrl: 'app/books/views/books.html',
+                    templateUrl: 'app/books/books.html',
                     controller: 'BooksController as booksVM'
                 })
                 .state('editBook', {
                     url: '/books/edit/:id',
-                    templateUrl: 'app/editBook/views/editBook.html',
+                    templateUrl: 'app/editBook/editBook.html',
                     controller: 'EditBookController as editBookVM'
                 })
                 .state('addBook', {
                     url: '/books/add',
-                    templateUrl: 'app/addBook/views/addBook.html',
+                    templateUrl: 'app/addBook/addBook.html',
                     controller: 'AddBookController as addBookVM'
                 });
         }])
