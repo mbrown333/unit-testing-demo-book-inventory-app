@@ -13,5 +13,8 @@
     "express": "^4.13.4",
     "method-override": "^2.3.6",
     "mongoose": "^4.4.20"
+  },
+  "devDependencies": {
+    "jasmine-core": "^2.4.1"
   }
 }

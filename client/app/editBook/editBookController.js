@@ -1,4 +1,6 @@
 (function(angular) {
+    'use strict';
+
     EditBookController.$inject = ['$state', '$stateParams', 'BooksService'];
 
     function EditBookController($state, $stateParams, BooksService) {

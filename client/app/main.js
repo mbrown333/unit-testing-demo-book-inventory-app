@@ -1,6 +1,6 @@
 (function(angular) {
     'use strict';
-    angular.module('book-inventory-app.main')
+    angular.module('book-inventory-app')
         .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise('/');
 
