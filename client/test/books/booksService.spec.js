@@ -5,13 +5,16 @@ describe('Services - Books Services', function() {
     var booksService;
     var $httpBackend;
 
-    beforeEach(module('book-inventory-app.books'));
-    beforeEach(inject(function(BooksService, _$httpBackend_) {
-        $httpBackend = _$httpBackend_;
-        booksService = BooksService;
+    beforeEach(function() {
+        module('book-inventory-app.books');
 
-        $httpBackend.verifyNoOutstandingRequest();
-    }));
+        inject(function(BooksService, _$httpBackend_) {
+            $httpBackend = _$httpBackend_;
+            booksService = BooksService;
+
+            $httpBackend.verifyNoOutstandingRequest();
+        });
+    });
 
     afterEach(function() {
         $httpBackend.flush();

@@ -11,31 +11,34 @@ describe('Controller - Books Controller', function() {
     var deferredListResponse;
     var mockBookList;
 
-    booksServiceMock = jasmine.createSpyObj('BooksService', ['getBooks', 'deleteBook']);
-    mockBookList = [{ id: '1'}, { id: '2' }, { id: '3'}];
+    beforeEach(function() {
 
-    beforeEach(module('ui.router.state'));
-    beforeEach(module('book-inventory-app.books'));
+        module('ui.router.state');
+        module('book-inventory-app.books');
 
-    beforeEach(inject(function($controller, _$rootScope_, _$state_, _$q_, _$timeout_) {
-        $rootScope = _$rootScope_;
-        $state = _$state_;
-        $q = _$q_;
-        $timeout = _$timeout_;
+        booksServiceMock = jasmine.createSpyObj('BooksService', ['getBooks', 'deleteBook']);
+        mockBookList = [{ id: '1'}, { id: '2' }, { id: '3'}];
 
-        deferredListResponse = $q.defer();
-        booksServiceMock.getBooks.and.returnValue(deferredListResponse.promise);
-        deferredListResponse.resolve(mockBookList);
+        inject(function($controller, _$rootScope_, _$state_, _$q_, _$timeout_) {
+            $rootScope = _$rootScope_;
+            $state = _$state_;
+            $q = _$q_;
+            $timeout = _$timeout_;
 
-        booksController = $controller('BooksController', {
-            $state: $state,
-            BooksService: booksServiceMock
+            deferredListResponse = $q.defer();
+            booksServiceMock.getBooks.and.returnValue(deferredListResponse.promise);
+            deferredListResponse.resolve(mockBookList);
+
+            booksController = $controller('BooksController', {
+                $state: $state,
+                BooksService: booksServiceMock
+            });
+
+            spyOn($state, 'go');
+            
+            $rootScope.$apply();
         });
-
-        spyOn($state, 'go');
-        
-        $rootScope.$apply();
-    }));
+    });
 
     it('should load a list of books on init', function() {
         expect(booksController.booksList).toBeDefined();

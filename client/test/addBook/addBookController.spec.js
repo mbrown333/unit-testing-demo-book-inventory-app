@@ -8,24 +8,27 @@ describe('Controller - Add Book', function() {
     var $state;
     var $q;
 
-    booksServiceMock = jasmine.createSpyObj('BooksService', ['createBook'])
-    validateServiceMock = jasmine.createSpyObj('ValidateDateService', ['isValidDate'])
+    beforeEach(function() {
+        module('ui.router.state');
+        module('book-inventory-app');
+        module('book-inventory-app.add');
 
-    beforeEach(module('ui.router.state'))
-    beforeEach(module('book-inventory-app'))
-    beforeEach(module('book-inventory-app.add'))
-    beforeEach(inject(function($controller, _$state_, _$q_) {
-        $state = _$state_;
-        $q = _$q_;
+        booksServiceMock = jasmine.createSpyObj('BooksService', ['createBook']);
+        validateServiceMock = jasmine.createSpyObj('ValidateDateService', ['isValidDate']);
 
-        addBookControler = $controller('AddBookController', {
-            $state: _$state_,
-            BooksService: booksServiceMock,
-            ValidateDateService: validateServiceMock
+        inject(function($controller, _$state_, _$q_) {
+            $state = _$state_;
+            $q = _$q_;
+
+            addBookControler = $controller('AddBookController', {
+                $state: _$state_,
+                BooksService: booksServiceMock,
+                ValidateDateService: validateServiceMock
+            });
+
+            spyOn($state, 'go');
         });
-
-        spyOn($state, 'go');
-    }));
+    });
 
     it('should display an error message if all of the fields are not completed', function() {
         expect(addBookControler.showFieldsRequiredError).toBe(false);

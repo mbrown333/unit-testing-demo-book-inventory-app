@@ -4,10 +4,13 @@ describe('Services - Validate Date Service', function() {
 
     var validateDateService;
 
-    beforeEach(module('book-inventory-app.services'))
-    beforeEach(inject(function(ValidateDateService) {
-        validateDateService = ValidateDateService;
-    }));
+    beforeEach(function() {
+        module('book-inventory-app.services');
+
+        inject(function(ValidateDateService) {
+            validateDateService = ValidateDateService;
+        });
+    });
 
     it('should return true for a valid date input', function() {
         expect(validateDateService.isValidDate('1/1/2016')).toEqual(true);

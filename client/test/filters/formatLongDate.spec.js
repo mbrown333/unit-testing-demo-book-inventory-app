@@ -4,10 +4,13 @@ describe('Filter - Format Long Date Filter', function() {
 
     var formatLongDateFilter;
 
-    beforeEach(module('book-inventory-app.filters'));
-    beforeEach(inject(function($filter) {
-        formatLongDateFilter = $filter('formatLongDate');
-    }));
+    beforeEach(function() {
+        module('book-inventory-app.filters');
+        
+        inject(function($filter) {
+            formatLongDateFilter = $filter('formatLongDate');
+        });
+    });
 
     it('should return an empty string if there is no input', function() {
         expect(formatLongDateFilter('')).toEqual('');

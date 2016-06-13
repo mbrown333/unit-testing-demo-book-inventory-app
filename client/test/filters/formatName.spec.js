@@ -4,10 +4,13 @@ describe('Filter - Format Name Filter', function() {
 
     var formatNameFilter;
 
-    beforeEach(module('book-inventory-app.filters'));
-    beforeEach(inject(function($filter) {
-        formatNameFilter = $filter('formatName');
-    }));
+    beforeEach(function() {
+        module('book-inventory-app.filters');
+        
+        inject(function($filter) {
+            formatNameFilter = $filter('formatName');
+        })
+    });
 
     it('should return the input with the first letter in each work capitalized and the rest un lower case', function() {
         expect(formatNameFilter('JOHN DOE')).toEqual('John Doe');
