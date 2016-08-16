@@ -5,23 +5,23 @@ Prerequisites:
 - NodeJS
 - npm
 - Mongo (https://docs.mongodb.com/manual/installation/)
-- Bower
+- Bower:
     npm install -g bower
-- Karma CLI
+- Karma CLI:
     npm install -g karma-cli
 
 To run application:
 
-- Install dependencies
+- Install dependencies:
     npm install
 
-- Install bower libraries
+- Install bower libraries:
     bower install
 
-- Have a local instance of mongo db running
+- Have a local instance of mongo db running:
     mongod
 
-- Run Server
+- Run Server:
     node server/server
 
 To run unit tests:
